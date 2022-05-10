@@ -1,0 +1,6 @@
+#import "../fragments/CargoDetail.graphql"
+query cargo($blNumber: ID!, $blDate: String!) {
+  cargo(blNumber: $blNumber, blDate: $blDate) {
+      ...CargoDetail
+  }
+}

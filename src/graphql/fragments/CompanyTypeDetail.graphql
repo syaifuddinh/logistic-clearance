@@ -1,0 +1,4 @@
+fragment CompanyTypeDetail on CompanyType {
+  id
+  typeName
+}

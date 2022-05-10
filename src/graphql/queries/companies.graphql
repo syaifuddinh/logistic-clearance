@@ -1,0 +1,6 @@
+#import "../fragments/CompanyDetail.graphql"
+query {
+  companies {
+    ...CompanyDetail
+  }
+}

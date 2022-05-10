@@ -1,0 +1,595 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Share&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+
+$theme-colors: (
+    "primary": #7456fd,
+    "semi-primary": #7456FD1A,
+    "second-primary":  #6308F7,
+
+    "secondary": #0078ff,
+    "second-secondary": #3583ed,
+    "success": #27ae60,
+    "white" : white,
+    "gray" : #e8ecf4,
+    
+    "primary-gray" : #6e7191,
+    "secondary-gray" : #eff0f6,
+    "third-gray" : #4E4B66,
+    "fourth-gray" : #BDBDBD,
+    "fifth-gray" : #AAAAAA,
+    "sixth-gray" : rgba(34, 33, 81, 0.5),
+    "seventh-gray" : rgba(78, 98, 152, 0.5),
+    "eighth-gray" : rgba(196, 196, 196, 1),
+    "ninth-gray" : rgba(0, 0, 0, 0.5),
+
+    "primary-muted" : #cacad5,
+    "very-muted" : #cacede,
+    "red" : #eb5757,
+    "danger" : #eb5757,
+    "transparent" : transparent,
+
+    "black" : #333333,
+    "dark" : #000000,
+    "semi-danger" : rgba(235, 87, 87, 0.15),
+    "semi-success" : rgba(36, 220, 114, 0.15),
+    "semi-warning" : #ffdd55,
+    "semi-secondary" : #F4F6FE
+);
+
+$breakpoints : (
+    "xs" : 576px,
+    "sm" : 768px,
+    "md" : 992px,
+    "lg" : 1200px
+);
+
+$additionalDisplay : table-header-group, table-row, table-cell;
+$positions : static, relative, absolute;
+
+
+$cursors : not-allowed;
+
+* {
+    font-family:'Raleway', sans-serif;
+}
+
+body div button.font-poppins, body div .font-poppins span {
+    font-family: "Poppins", sans-serif;
+}
+
+$enable-gradients: true;
+
+$card-border-radius:0.5rem;
+
+h1, h2, h3, h4, h5, h6 {
+    color:#14142b;
+}
+
+body div h6 {
+    font-size:16px;
+}
+
+
+.input-focus-none:focus-visible {
+    border:none;
+    outline:0;
+}
+
+.nav .nav-item {
+    font-weight:700;
+    text-transform:capitalize;
+}
+.nav.nav-tabs .nav-item.active {
+    color: map-get($theme-colors, "primary");
+}
+
+tr th {
+    word-wrap: break-word;
+}
+
+h4.font-weight-bold, button.btn, div h3, label.form-label {
+    text-transform:capitalize;
+}
+
+table tr td, table tr th {
+    font-size:3mm;
+}
+
+tr td:first-child {
+    padding-left:1mm;
+}
+
+table.table-striped tbody tr:nth-of-type(2n+1) {
+    background-color:#F1F1FF;
+}
+
+div .react-datepicker__input-container input {
+    width:100%!important;
+}
+
+.gologs-container {
+    width: auto;
+    margin-left:1rem;
+    margin-right:1rem;
+    padding-top: 2.5em;
+}
+
+.breadcrumb {
+    background-color:transparent!important;
+    padding-left:0mm!important;
+}
+
+.bg-gray {
+    background:#bdbdbd;
+}
+
+div .border-muted {
+    border-width:1px;
+    border-color:#bdbdbd;
+}
+
+.rounded-medium {
+    border-radius:5mm
+}
+
+.rounded-large {
+    border-radius:15mm
+}
+
+.btn.rounded-large {
+    border-radius:15mm
+}
+.btn.btn-sm.rounded-large {
+    border-radius:15mm
+}
+
+div small {
+    font-size:0.625rem;
+}
+
+.font-weight-light-bold {
+     font-weight: 500;
+}
+.font-weight-light-bolder, div .btn.font-weight-light-bolder {
+     font-weight: 600;
+}
+
+.font-weight-semi-bolder {
+     font-weight: 700;
+}
+
+
+.font-weight-more-bolder {
+    font-weight:820;
+}
+
+.font-weight-very-bolder {
+    font-weight:1000;
+}
+
+div .input-group-text {
+    background-color:white;
+    border-left:none;
+}
+
+.input-group input {
+    border-right:none
+}
+
+input::-webkit-input-placeholder {
+    text-transform:capitalize;
+    font-size:16px;
+}
+input::-moz-placeholder {
+    text-transform:capitalize;
+    font-size:16px;
+}
+input::-ms-input-placeholder {
+    text-transform:capitalize;
+    font-size:16px;
+}
+
+@each $cursor in $cursors {
+    .cursor-#{$cursor} {
+        cursor: $cursor;
+    }
+}
+
+@each $d in $positions {
+    @each $name, $size in $breakpoints {
+        @media (min-width: $size) {
+            div .#{$name}-position-#{$d} {
+                position: $d !important;
+            }
+        }
+    }
+}
+
+
+@each $d in $additionalDisplay {
+    .d-#{$d} {
+        display: $d;
+    }
+    
+    @each $name, $size in $breakpoints {
+        @media (min-width: $size) {
+            .d-#{$name}-#{$d}, div table .d-#{$name}-#{$d} {
+                display: $d!important;
+            }
+        }
+    }
+}
+
+@each $name, $color in $theme-colors {
+    div .border-#{$name} {
+        border-color: $color;
+    }
+    div .border-muted.border-#{$name} {
+        border-color: $color;
+    }
+
+    div .bg-#{$name}-hover:hover {
+        background-color: $color;
+    }
+
+    div .text-#{$name}-hover:hover {
+        color: $color;
+    }
+}
+
+
+@for $i from 0 through 5 {
+    .opacity-#{$i} {
+            opacity:1 * ($i / 5)
+    }
+
+    .border-#{$i}, .border-#{$i}px {
+        border-width: #{$i}px;
+        border-style: solid;
+    }
+}
+@for $i from 0 through 4 {
+    .letter-spacing-#{$i} {
+        letter-spacing:#{$i * 25 / 100}px;
+    }
+}
+@for $i from 0 through 1500 {
+    .w-#{$i}mm {
+            width:#{$i}mm
+    }
+    .w-#{$i}px, body div .w-#{$i}px, .form-control.w-#{$i}px {
+            width:#{$i}px;
+    }
+
+    .m-#{$i}px {
+            margin:#{$i}px;
+    }
+
+    .mt-#{$i}px {
+            margin-top:#{$i}px;
+    }
+
+    .mb-#{$i}px {
+            margin-bottom:#{$i}px;
+    }
+
+    div .ml-#{$i}px {
+            margin-left:#{$i}px;
+    }
+
+    .mr-#{$i}px, body div .mr-#{$i}px {
+            margin-right:#{$i}px;
+    }
+
+    .p-#{$i}px, div .p-#{$i}px {
+        padding:#{$i}px;
+    }
+
+    .px-#{$i}px, div .px-#{$i}px {
+        padding-left:#{$i}px;
+        padding-right:#{$i}px;
+    }
+    
+    .pl-#{$i}px, div .pl-#{$i}px {
+        padding-left:#{$i}px;
+    }
+
+    .pr-#{$i}px, div .pr-#{$i}px {
+        padding-right:#{$i}px;
+    }
+    
+    body div .h-#{$i}px, .h-#{$i}px {
+            height:#{$i}px;
+    }    
+    
+    .h-#{$i} {
+            height:#{$i + "%"};
+    }
+
+    .rounded-#{$i}px, div .rounded-#{$i}px, div .btn.rounded-#{$i}px, div.rounded-#{$i}px .modal-content {
+            border-radius:#{$i}px;
+        }
+        
+    .top-right-rounded-#{$i}px {
+        border-top-right-radius:#{$i}px;
+    }
+
+    .top-left-rounded-#{$i}px {
+        border-top-left-radius:#{$i}px;
+    }
+
+    .bottom-left-rounded-#{$i}px {
+        border-bottom-left-radius:#{$i}px;
+    }
+
+    .bottom-right-rounded-#{$i}px {
+        border-bottom-right-radius:#{$i}px;
+    }
+
+    @each $name, $size in $breakpoints {
+        @media (min-width: $size) {
+            .#{$name}-w-#{$i}px,
+            body div .#{$name}-w-#{$i}px,
+            body div .#{$name}-w-#{$i}px .modal-dialog,
+            .form-control.#{$name}-w-#{$i}px {
+                width: #{$i}px!important;
+            }
+            
+            body .#{$name}-max-w-#{$i}px .modal-dialog {
+                max-width: #{$i}px!important;
+            }
+
+            .#{$name}-w-#{$i}mm,
+            .form-control.#{$name}-w-#{$i}mm {
+                width: #{$i}mm;
+            }
+
+            body div .#{$name}-h-#{$i}px,
+            .form-control.#{$name}-h-#{$i}px {
+                height: #{$i}px;
+            }
+
+            .#{$name}-m-#{$i}px {
+                margin: #{$i}px;
+            }
+
+            div .#{$name}-mt-#{$i}px {
+                margin-top: #{$i}px;
+            }
+
+            div .#{$name}-mb-#{$i}px {
+                margin-bottom: #{$i}px;
+            }
+
+            div .#{$name}-ml-#{$i}px {
+                margin-left: #{$i}px;
+            }
+
+            .#{$name}-mr-#{$i}px {
+                margin-right: #{$i}px;
+            }
+
+            .#{$name}-p-#{$i}px, div .#{$name}-p-#{$i}px {
+                padding: #{$i}px;
+            }
+
+            .#{$name}-px-#{$i}px, div .#{$name}-px-#{$i}px {
+                padding-left: #{$i}px;
+                padding-right: #{$i}px;
+            }
+
+            .#{$name}-pl-#{$i}px, div .#{$name}-pl-#{$i}px {
+                padding-left: #{$i}px;
+            }
+
+            .#{$name}-pr-#{$i}px, body div .#{$name}-pr-#{$i}px, body  div .form-group.#{$name}-pr-#{$i}px {
+                padding-right: #{$i}px;
+            }
+            
+            .#{$name}-rounded-#{$i}px {
+                border-radius: #{$i}px;
+            }
+
+            .#{$name}-top-right-rounded-#{$i}px {
+                border-top-right-radius: #{$i}px;
+            }
+
+            .#{$name}-top-left-rounded-#{$i}px {
+                border-top-left-radius: #{$i}px;
+            }
+
+            .#{$name}-bottom-left-rounded-#{$i}px {
+                border-bottom-left-radius: #{$i}px;
+            }
+
+            .#{$name}-bottom-right-rounded-#{$i}px {
+                border-bottom-right-radius: #{$i}px;
+            }
+        }
+    }
+
+}
+    
+
+@for $i from 0 through 100 {
+    .h-#{$i}mm {
+        height:#{$i}mm
+    }
+    .t-#{$i} {
+        top:#{$i + "%"};
+    }
+    .l-#{$i} {
+        left:#{$i + "%"};
+    }
+    .mt-#{$i}px {
+        margin-top:#{$i}px;
+    }
+
+    .w-#{$i} {
+        width: #{$i + "%"};
+    }
+
+    
+    @each $name, $size in $breakpoints {
+        @media (min-width: $size) {
+            .#{$name}-w-#{$i} {
+                width:#{$i + "%"};
+            }
+
+            .#{$name}-t-#{$i} {
+                top:#{$i + "%"};
+            }
+            .#{$name}-l-#{$i} {
+                left:#{$i + "%"};
+            }
+
+            div .#{$name}-w-#{$i} {
+                width: #{$i + "%"}!important;
+            }
+
+        }
+    }
+
+}
+
+@for $i from 1 through 40 {
+    .fs-#{$i}px, div div .fs-#{$i}px {
+            font-size:#{$i * 0.0625}rem
+    }
+
+    @each $name, $size in $breakpoints {
+        @media (min-width: $size) {
+            .#{$name}-fs-#{$i}px, div div .#{$name}-fs-#{$i}px {
+                font-size: #{$i * 0.0625}rem;
+            }
+
+        }
+    }
+}
+
+@for $i from 10 through 20 {
+    .radius-#{$i}px {
+            border-radius:#{$i * 0.0625}rem
+    }
+}
+
+@for $i from 0 through 5 {
+    .top-#{$i} {
+            top:($i / 5) * 100
+    }
+
+    div .border-right-#{$i}px {
+        border-right: #{$i}px solid #dee2e6 !important;
+    }
+    div .border-bottom-#{$i}px, .border-bottom-#{$i}px {
+        border-bottom: #{$i}px solid #dee2e6 !important;
+    }
+    div .border-top-#{$i}px {
+        border-top: #{$i}px solid #dee2e6 !important;
+    }
+    div .border-left-#{$i}px {
+        border-left: #{$i}px solid #dee2e6 !important;
+    }
+
+
+    @each $name, $size in $breakpoints {
+        @media (min-width: $size) {
+            div .#{$name}-border-right-#{$i}px {
+                border-right: #{$i}px solid #dee2e6 !important;
+            }
+            div .#{$name}-border-bottom-#{$i}px {
+                border-bottom: #{$i}px solid #dee2e6 !important;
+            }
+            div .#{$name}-border-top-#{$i}px {
+                border-top: #{$i}px solid #dee2e6 !important;
+            }
+            div .#{$name}-border-left-#{$i}px {
+                border-left: #{$i}px solid #dee2e6 !important;
+            }
+        }
+    }
+}
+
+.infinite-rotation {
+    position:relative;
+    animation: hyperloop 30s;
+    animation-iteration-count: infinite;
+}
+
+.style__TabItem-sc-1ayan9t-3 .card {
+    border:0;
+}
+
+.style__TabItem-sc-1ayan9t-3 .card .card-body {
+    padding:0
+}
+
+div .react-datepicker-popper {
+  z-index: 10;
+}
+
+
+div .btn {
+    border-width:2.4px;
+}
+
+div .btn.rounded-large {
+    border-width:2.4px;
+    font-weight:600;
+}
+
+div .shadow {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.06) !important;
+}
+
+.hover:hover {
+    cursor:pointer;
+    border-width:0.1mm;
+    border-style: solid;
+}
+
+body div .hover-primary:hover {
+    border-color: map-get($theme-colors, "primary")!important;
+}
+
+@keyframes hyperloop {
+  from {
+    transform:rotate(0deg);
+}
+to {
+      transform:rotate(3600deg);
+  }
+}
+
+.gologs-select-primary {
+    .css-yk16xz-control, .css-1pahdxg-control {
+        height:16.5mm;
+        border-radius:2.5mm;
+        border-width:2px;
+        border-color:black
+    }
+
+    .css-1uccc91-singleValue,  .css-1wa3eu0-placeholder {
+        padding-left:3mm;
+    }
+}
+
+
+
+@import "~bootstrap/scss/bootstrap";
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+$medium : map-get($grid-breakpoints, "md");
+
+@media only screen and (min-width : #{$medium}) {
+    .gologs-container {
+        margin-left: 17rem;
+        padding-left: 3rem;
+    }
+}

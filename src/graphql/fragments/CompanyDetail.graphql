@@ -1,0 +1,15 @@
+fragment CompanyDetail on Company {
+  id
+  companyName
+  npwp
+  npppjk
+  companyType {
+    id
+    typeName
+  }
+  brokerCompany {
+    id
+    companyName
+    npwp
+  }
+}

@@ -1,0 +1,6 @@
+#import "../fragments/CompanyTypeDetail.graphql"
+query {
+  companyTypes {
+    ...CompanyTypeDetail
+  }
+}

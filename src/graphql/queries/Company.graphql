@@ -1,0 +1,6 @@
+#import "../fragments/CompanyDetail.graphql"
+query Company($id: ID!) {
+  company(id: $id) {
+    ...CompanyDetail
+  }
+}

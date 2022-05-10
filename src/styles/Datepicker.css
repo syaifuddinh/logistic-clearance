@@ -1,0 +1,15 @@
+.react-datepicker-wrapper,
+.react-datepicker__input-container,
+.react-datepicker__input-container input {
+  display: block;
+  width: 23.875rem;
+  height: 4rem;
+  background: #eff0f7;
+  border-radius: 0.75rem;
+  border: none;
+  font-size: 1rem;
+  color: #a0a3bd;
+  font-family: "Raleway";
+  padding-left: 1.5rem;
+  outline: none;
+}

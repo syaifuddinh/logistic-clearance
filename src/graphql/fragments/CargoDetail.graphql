@@ -1,0 +1,15 @@
+fragment CargoDetail on Shipment{
+  blNumber
+  billOfLading
+  consigneeName
+  shipName
+  shipperName
+  voyageNumber
+  containers{
+    containerNumber
+    containerOrder
+    movementType
+    sealNumber
+    size
+  }
+}
